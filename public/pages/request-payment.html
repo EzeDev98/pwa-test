@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request payment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,100&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#E1D9D1">
+
+    <!-- iOS support -->
+    <link rel="apple-touch-icon" href="/icons/wm-96.jpeg">
+    <link rel="apple-mobile-web-app-status-bar" content="#E1D9D1">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="my-5 pt-lg-5">
+            <div class="col">
+                <div class="row">
+                    <div class="col-1">
+                        <a href="homepage.html" style="color: black;">
+                            <span class="material-symbols-outlined">
+                                arrow_back_ios
+                            </span></a>
+                    </div>
+                    <div class="col-11">
+                        <h5 class="h6 text-center">Request Payment</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="payment" class="mt-5" id="myForm">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label h4  tran-color">Amount</label>
+                <input id="amount" type="email" class="form-control" id="exampleInputEmail1" placeholder="#0.00">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label h4 tran-color">Description</label>
+                <textarea id="description" class="form-control" id="" rows="5" placeholder="e.g groceries, shopping....."></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="exampleInputEmail1" class="form-label h4  tran-color">Classification (not required) </label>
+                <div id="classification" class="input-group">
+                    <input type="text" id="inputField" class="form-control" data-bs-toggle="modal" data-bs-target="#exampleModal" readonly>
+                    <span class="input-group-text"><i class="material-symbols-outlined">expand_more</i></span>
+                </div>
+            </div>
+            </div>
+            <a id="generate" type="submit" class="btn my-btn w-100 my-4 ">Generate QR</a>
+        </form>
+    </main>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body mt-4" style="background-color: rgba(245, 245, 245, 1);">
+                    <div class="row">
+                        <div class="modal-header">
+                            <h3 class="modal-title fs-6 text-center h7" id="exampleModalLabel">What is this payment for?
+                            </h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('HOUSING')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/housing.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">HOUSING</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0 ">
+                            <div class="cat-card text-center ton" onclick="selectText('EATING OUT')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/eating.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">EATING OUT</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('REPAIR/MAINT')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/repair.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">REPAIR/MAINT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('CLOTHING')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/clothing.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">CLOTHING</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0 ">
+                            <div class="cat-card text-center ton" onclick="selectText('EDUC SERVICE')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/book.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">EDUC SERVICE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('HEALTH SERVICE')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/medical.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">HEALTH SERVICE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-0 ">
+                            <div class="cat-card text-center ton" onclick="selectText('GEN/FUEL')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/gen.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">GEN/FUEL</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('GROCERIES')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/groceries.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">GROCERIES</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('ELECTRICITY BILL')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/nepa.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">ELECTRICITY BILL</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('WATER BILL')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/water.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">WATER BILL</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('PERSONAL CARE')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/personal-care.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">PERSONAL CARE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('CHARITY')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/charity.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">CHARITY</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-0 ">
+                            <div class="cat-card text-center ton" onclick="selectText('TRANSPORT')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/transport.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">TRANSPORT</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('FURNITURE EQUIP')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/funiture.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">FURNITURE EQUIP</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('RELIGION')" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/religion.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">RELIGION</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-0 ">
+                            <div class="cat-card text-center ton" onclick="selectText('LENT OUT')" data-dismiss="modal" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/lent-out.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">LENT OUT</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="cat-card text-center ton" onclick="selectText('EDU SUPPLIES')" data-dismiss="modal" data-dismiss="modal">
+                                <div class="pt-3">
+                                    <img src="../assets/img/edu.ico" alt="" srcset="">
+                                    <p class=" small-1 mt-2">EDU SUPPLIES</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn my-btn w-100 mt-5 " data-bs-dismiss="modal">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/ee821714d4.js" crossorigin="anonymous"></script>
+    <script>
+        // Function to update the input field and close the modal
+        function selectText(text) {
+            var inputField = document.getElementById("inputField");
+            inputField.value = text;
+            console.log(text)
+            // localStorage.setItem("", text);
+        }
+
+        // Add and remove active class on button click
+        document.addEventListener("DOMContentLoaded", function() {
+            var buttons = document.querySelectorAll(".ton");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener("click", function() {
+                    var
+                        activeButton = document.querySelector(".btn-active");
+                    if (activeButton) {
+                        activeButton.classList.remove("btn-active");
+                    }
+                    this.classList.add("btn-active");
+                });
+            }
+        });
+    </script>
+    <script src="../src/payment.js"></script>
+    <script src="../src/app.js"></script>
+    <script src="../src/syncReminder.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>

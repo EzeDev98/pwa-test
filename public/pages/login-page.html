@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,100&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#E1D9D1">
+
+    <!-- iOS support -->
+    <link rel="apple-touch-icon" href="/icons/wm-96.jpeg">
+    <link rel="apple-mobile-web-app-status-bar" content="#E1D9D1">
+
+</head>
+
+<body>
+
+    <style>
+        #loadingSpinner {
+            position: absolute;
+            left: 50%;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            margin-top: 23px;
+        }
+    </style>
+
+    <main class="form-signin container text-center">
+        <form id="text-form" method="post" action="/auth/login">
+            <div class="mb-5 pt-lg-5">
+                <img class="mb-4 signin-logo" src="../assets/img/WM-logo.png" alt="" width="91" height="91">
+                <h1 class="h3 ">Welcome Back</h1>
+                <p class="text-muted">Please enter your login details below</p>
+            </div>
+
+            <!-- Error message section -->
+            <div id="error-message" class="d-none">
+                <h3 id="error-text"></h3>
+            </div>
+
+            <div class="form-floating mb-5">
+                <input id="emailText" type="email" class="form-control" id="floatingInput" placeholder="703893898">
+                <label for="floatingInput" class="text-muted"><span><i class="fas fa-envelope fa-sm mr-3"></i></span>Phone Number</label>
+            </div>
+
+            <div class="input-group mb-2">
+                <div class="form-floating">
+                    <input id="passwordText" type="password" class="form-control" placeholder="Password">
+                    <label for="floatingPassword" class="text-muted"><span class=""><i class="fas fa-lock"></i></span> Password </label>
+                </div>
+                <span class="input-group-text" id="togglePassword"> <i class="far fa-eye"></i></span>
+            </div>
+
+            <div class="checkbox mb-5 pb-4 float-end">
+                <label class="forgot-password"> Forgot Password? </label>
+            </div>
+
+            <div id="loadingSpinner" class="d-none">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <a class="w-100  btn my-btn" type="submit" id="login">Login</a> -->
+            <button class="w-100 btn my-btn" type="submit" id="login">Login</button>
+
+        </form>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/ee821714d4.js" crossorigin="anonymous"></script>
+    <script src="../src/app.js"></script>
+    <script src="../dist/loginPage.bundle.js"></script>
+    <script>
+        // Add your JavaScript code here
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            var passwordInput = document.getElementById('passwordText');
+            var icon = document.querySelector('#togglePassword i');
+
+            // Toggle the type attribute
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('far', 'fa-eye');
+                icon.classList.add('far', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('far', 'fa-eye-slash');
+                icon.classList.add('far', 'fa-eye');
+            }
+        });
+    </script>
+    <script src="../src/syncReminder.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</body>

@@ -1,0 +1,37 @@
+{
+    "name": "WealthMarket Offline-Pay",
+    "short_name": "WMPay",
+    "description": "An offline payment app",
+    "start_url": "./pages/login-page.html",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#E1D9D1",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "./icons/wm-72.jpg",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "./icons/wm-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "./icons/wm-144.jpg",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "./icons/wm-192.jpg",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./icons/wm-512.jpg",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
