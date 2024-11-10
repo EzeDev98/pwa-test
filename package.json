@@ -1,0 +1,32 @@
+{
+  "name": "wm-offline-pay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.4",
+    "buffer": "^6.0.3",
+    "chart.js": "^4.4.1",
+    "crypto-js": "^4.1.1",
+    "html5-qrcode": "^2.3.8",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "keycloak-js": "^20.0.0",
+    "qrcode": "^1.5.3",
+    "seedrandom": "^3.0.5",
+    "stream-browserify": "^3.0.0"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^8.1.0",
+    "import-loader": "^1.0.1",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
