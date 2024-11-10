@@ -61,7 +61,7 @@ if (getAppBtn) {
 // Register service worker if available
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/pwa-test/sw.js')
       .then(reg => console.log("Service Worker registered", reg))
       .catch(err => console.log("Service Worker registration failed", err));
   });
